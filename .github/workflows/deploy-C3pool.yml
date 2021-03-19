@@ -137,17 +137,3 @@ jobs:
           asset_path: macos_build/macos_build.tar.gz
           asset_name: xmrig-${{steps.version.outputs.VERSION}}-mac64.tar.gz
           asset_content_type: application/zip
-      - name: Update hiveos repo
-        run: |
-          git clone https://$GITHUB_ACTOR:${{secrets.xmrig_setup_key}}@github.com/MoneroOcean/hiveos.git
-          cd hiveos
-          git config user.name  MoneroOcean
-          git config user.email MoneroOcean@outlook.com
-          mv xmrig cat_xmrig/xmrig
-          mv config.json cat_xmrig/config_global.json
-          export VER=${GITHUB_REF:10}
-          export VER=${VER//-/_}
-          tar -zcvf cat_xmrig-$VER.tar.gz cat_xmrig
-          git add cat_xmrig-$VER.tar.gz cat_xmrig/xmrig cat_xmrig/config_global.json
-          git commit -m "xmrig "${GITHUB_REF:10}" based release" cat_xmrig-$VER.tar.gz
-          git push
