@@ -104,10 +104,6 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: macos_build
-      - name: Download CentOS 6 build artifacts
-        uses: actions/download-artifact@v1
-        with:
-          name: centos6_build
       - name: Upload Windows build release asset
         uses: actions/upload-release-asset@v1.0.1
 
