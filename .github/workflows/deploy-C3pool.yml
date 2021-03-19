@@ -137,18 +137,6 @@ jobs:
           asset_path: macos_build/macos_build.tar.gz
           asset_name: xmrig-${{steps.version.outputs.VERSION}}-mac64.tar.gz
           asset_content_type: application/zip
-      - name: Update xmrig_setup repo
-        run: |
-          git clone https://$GITHUB_ACTOR:${{secrets.xmrig_setup_key}}@github.com/MoneroOcean/xmrig_setup.git
-          cd xmrig_setup
-          git config user.name  MoneroOcean
-          git config user.email MoneroOcean@outlook.com
-          cp ../windows_build/windows_build.zip xmrig.zip
-          unzip xmrig.zip
-          zip -u offline_miner_setup.zip xmrig.exe config.json WinRing0x64.sys
-          git commit -m "xmrig "${GITHUB_REF:10}" based release" xmrig.tar.gz xmrig.zip offline_miner_setup.zip
-          git push
-          cd ..
       - name: Update hiveos repo
         run: |
           git clone https://$GITHUB_ACTOR:${{secrets.xmrig_setup_key}}@github.com/MoneroOcean/hiveos.git
