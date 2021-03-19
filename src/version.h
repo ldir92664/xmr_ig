@@ -32,7 +32,7 @@
 #define APP_DOMAIN    "BeHash.com"
 #define APP_SITE      "www.BeHash.com"
 #define APP_COPYRIGHT "Copyright (C) 2016-2021 BeHash.com"
-#define APP_KIND      "miner"
+#define APP_KIND      "Worker"
 
 #define APP_VER_MAJOR  6
 #define APP_VER_MINOR  10
